@@ -7,8 +7,18 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        int a = input.nextInt(), b = input.nextInt(), c = input.nextInt();
-        int x = Math.abs(a - b), y = Math.abs(b - c), z = Math.abs(a - c);
-        System.out.print(x > y ? (x > z ? x : z) : (y > z ? y : z));
+        int[] salary = {input.nextInt(), input.nextInt(), input.nextInt()};
+
+        int[] difference = {
+                Math.abs(salary[0] - salary[1]),
+                Math.abs(salary[0] - salary[2]),
+                Math.abs(salary[1] - salary[2])
+        };
+
+        System.out.print(
+                difference[0] > difference[1] ?
+                        (difference[0] > difference[2] ? difference[0] : difference[2]) :
+                        (difference[1] > difference[2] ? difference[1] : difference[2])
+        );
     }
 }
